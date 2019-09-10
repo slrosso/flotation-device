@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlotationDeviceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Collection">
+    <Key>
+      <PropertyRef Name="CollectionID" />
+    </Key>
+    <Property Name="CollectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollectionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CollectionCode" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="AverageWidth" Type="float" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LocationCode" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocationCollection">
+    <Key>
+      <PropertyRef Name="LocationCollectionID" />
+    </Key>
+    <Property Name="LocationCollectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationID" Type="int" Nullable="false" />
+    <Property Name="CollectionID" Type="int" Nullable="false" />
+    <Property Name="CheckedInItems" Type="int" />
+  </EntityType>
+  <EntityType Name="ShelfType">
+    <Key>
+      <PropertyRef Name="ShelfTypeID" />
+    </Key>
+    <Property Name="ShelfTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShelfType" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shelving">
+    <Key>
+      <PropertyRef Name="ShelvingID" />
+    </Key>
+    <Property Name="ShelvingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationCollectionID" Type="int" Nullable="false" />
+    <Property Name="ShelfTypeID" Type="int" Nullable="false" />
+    <Property Name="ShelfQty" Type="int" />
+    <Property Name="Length" Type="int" />
+    <Property Name="RowQty" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="256" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="LocationID" Type="int" Nullable="false" />
+    <Property Name="CollectionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="fk_collection">
+    <End Role="Collection" Type="Self.Collection" Multiplicity="1" />
+    <End Role="LocationCollection" Type="Self.LocationCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collection">
+        <PropertyRef Name="CollectionID" />
+      </Principal>
+      <Dependent Role="LocationCollection">
+        <PropertyRef Name="CollectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_location">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="LocationCollection" Type="Self.LocationCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="LocationCollection">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationCollection">
+    <End Role="LocationCollection" Type="Self.LocationCollection" Multiplicity="1" />
+    <End Role="Shelving" Type="Self.Shelving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationCollection">
+        <PropertyRef Name="LocationCollectionID" />
+      </Principal>
+      <Dependent Role="Shelving">
+        <PropertyRef Name="LocationCollectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShelfType">
+    <End Role="ShelfType" Type="Self.ShelfType" Multiplicity="1" />
+    <End Role="Shelving" Type="Self.Shelving" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShelfType">
+        <PropertyRef Name="ShelfTypeID" />
+      </Principal>
+      <Dependent Role="Shelving">
+        <PropertyRef Name="ShelfTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FlotationDeviceModelStoreContainer">
+    <EntitySet Name="Collection" EntityType="Self.Collection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocationCollection" EntityType="Self.LocationCollection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShelfType" EntityType="Self.ShelfType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shelving" EntityType="Self.Shelving" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_collection" Association="Self.fk_collection">
+      <End Role="Collection" EntitySet="Collection" />
+      <End Role="LocationCollection" EntitySet="LocationCollection" />
+    </AssociationSet>
+    <AssociationSet Name="fk_location" Association="Self.fk_location">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="LocationCollection" EntitySet="LocationCollection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationCollection" Association="Self.FK_LocationCollection">
+      <End Role="LocationCollection" EntitySet="LocationCollection" />
+      <End Role="Shelving" EntitySet="Shelving" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShelfType" Association="Self.FK_ShelfType">
+      <End Role="ShelfType" EntitySet="ShelfType" />
+      <End Role="Shelving" EntitySet="Shelving" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

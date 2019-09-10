@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f522b5bf25db413bb49e09994b806ec3" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="FlotationDeviceModel.Collection" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlotationDeviceModel.Location" Width="1.5" PointX="3.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlotationDeviceModel.LocationCollection" Width="2.125" PointX="2.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlotationDeviceModel.ShelfType" Width="1.5" PointX="8.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlotationDeviceModel.Shelving" Width="1.75" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FlotationDeviceModel.fk_collection" ManuallyRouted="false" />
+        <AssociationConnector Association="FlotationDeviceModel.fk_location" ManuallyRouted="false" />
+        <AssociationConnector Association="FlotationDeviceModel.FK_LocationCollection" ManuallyRouted="false" />
+        <AssociationConnector Association="FlotationDeviceModel.FK_ShelfType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FlotationDeviceModel.sysdiagram" Width="1.5" PointX="8.875" PointY="4.5" />
+        <AssociationConnector Association="FlotationDeviceModel.CollectionShelving" />
+        <AssociationConnector Association="FlotationDeviceModel.LocationShelving" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

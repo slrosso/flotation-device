@@ -1,0 +1,144 @@
+﻿@using HCLib.FlotationDevice.Service.Models
+@model HCLib.FlotationDevice.Staff.ViewModels.ShelvingIndexViewModel
+
+@section nav {
+    @Html.Partial("~/Views/Shared/nav.cshtml")
+}
+
+<h2>@Model.location</h2>
+
+
+@{
+    var groupedlist = Model.slist.GroupBy(l => l.LocationCollectionID);
+    var counter = 0;
+}
+@foreach (var groupeditem in groupedlist)
+{
+    var checkedin = @Model.loccol.Where(s => s.LocationCollectionID == groupeditem.Key).FirstOrDefault().CheckedInItems;
+    var colid = @Model.loccol.Where(s => s.LocationCollectionID == groupeditem.Key).FirstOrDefault().CollectionID;
+    var avgwidth = Model.col.Where(s => s.CollectionID == colid).FirstOrDefault().AverageWidth;
+    var colname = @Model.col.Where(s => s.CollectionID == colid).FirstOrDefault().CollectionName;
+
+    <h3 class="@counter">@colname</h3>
+
+
+    <h4>Shelving:</h4>
+    <div class="row">
+        <div class="col-md-2">
+            <p>Qty</p>
+        </div>
+        <div class="col-md-3">
+            <p>Type</p>
+        </div>
+        <div class="col-md-2">
+            <p>Width/ Depth</p>
+        </div>
+        <div class="col-md-2">
+            <p>Rows</p>
+        </div>
+        <div class="col-md-3">
+            <p>Note</p>
+        </div>
+    </div>
+
+    int? shelfqty = 0;
+    int? length = 0;
+    int? rowqty = 0;
+
+    foreach (Shelving s in groupeditem)
+    {
+        <div class="row">
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => s.ShelfQty)
+            </div>
+            <div class="col-md-3">
+                @Model.stypes.Where(i => i.ShelfTypeID == s.ShelfTypeID).FirstOrDefault().ShelfType1
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => s.Length)"
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => s.RowQty)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(modelItem => s.Note)
+            </div>
+        </div>
+        shelfqty = shelfqty + s.ShelfQty;
+        length = length + s.Length;
+        rowqty = rowqty + s.RowQty;
+
+    }
+    var shelvinginches = @shelfqty * @length * @rowqty;
+    var capacity = shelvinginches / avgwidth;
+    double statusbase = Convert.ToDouble((checkedin / capacity) * 100);
+    string statuspercent = statusbase.ToString("0.00");
+    string status = "okay";
+    <text>
+        @if (statusbase > 80) { status = "Critical surplus"; }
+        @if (statusbase < 70) { status = "Actionable deficit"; }
+    </text>
+    <ul class="collection-summary @counter">
+        <li>
+            Current status: <span class="@status">@statuspercent% @status</span>
+        </li>
+        <li>
+            Checked-in Items: @checkedin
+        </li>
+        <li>
+            Shelving inches: @shelvinginches"
+        </li>
+    </ul>
+    counter++;
+}
+
+<style>
+    .collection-summary {
+        clear: both;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    li {
+        padding: .3em;
+    }
+
+    h3 {
+        padding-top: 1em;
+        clear: both;
+        border-top: solid 1px #ccc;
+    }
+
+    h4 {
+        font-size: 100%;
+        font-weight: bold;
+    }
+
+    .row div {
+        text-align: left;
+    }
+
+    span {
+        padding: .3em;
+    }
+
+        span.Critical.surplus {
+            background-color: #fa8072;
+            font-weight:bold;
+        }
+
+        span.Actionable.deficit {
+            background-color: #F7DC6F;
+            font-weight: bold;
+        }
+</style>
+@section scripts {
+    <script type="text/javascript">
+        var count = @counter;
+        var i = 0;
+        do {
+            $('ul.collection-summary.' + i).detach().insertAfter('h3.' + i);
+            i = i + 1;
+        } while (i < count);
+    </script>
+}

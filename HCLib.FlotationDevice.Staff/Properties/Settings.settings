@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HCLib.FlotationDevice.Staff.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FlotationDeviceServiceURI" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:57275/odata/</Value>
+    </Setting>
+    <Setting Name="FlotationDeviceApiKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">154b7d54404c4630abb82b62985edd40</Value>
+    </Setting>
+    <Setting Name="FlotationDeviceServiceTimeout" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2400</Value>
+    </Setting>
+    <Setting Name="FlotationDeviceAppID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

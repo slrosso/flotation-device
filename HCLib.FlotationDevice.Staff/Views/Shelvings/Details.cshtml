@@ -1,0 +1,74 @@
+﻿@model HCLib.FlotationDevice.Service.Models.Shelving
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shelving</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationCollection.LocationCollectionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationCollection.LocationCollectionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShelfType.ShelfType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShelfType.ShelfType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShelfQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShelfQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RowQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RowQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShelvingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

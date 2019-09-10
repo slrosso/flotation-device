@@ -1,0 +1,26 @@
+﻿@model staff_assets.ViewModels.BaseViewModel
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="@Url.Content("~")">@Model.ApplicationName</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <!--<form class="navbar-form navbar-right">
+       <div class="form-group">
+        <label class="text-muted"><input type="checkbox" class="form-control"> continuous</label>
+       </div>
+       <div class="form-group">
+        <input type="text" placeholder="Enter ID" class="form-control" id="b">
+       </div>
+       <button type="submit" class="btn btn-success" id="a">Add</button>
+      </form>-->
+      <a href="https://dept.hennepin.us/li/Pages/Home.aspx" class="navbar-brand navbar-right">to SharePoint <span class="glyphicon glyphicon-share-alt"></span></a>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>

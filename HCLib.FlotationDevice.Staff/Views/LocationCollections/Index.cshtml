@@ -1,0 +1,51 @@
+﻿@using HCLib.FlotationDevice.Service.Models
+@model HCLib.FlotationDevice.Staff.ViewModels.LocationCollectionsViewModel
+
+@section nav {
+    @Html.Partial("~/Views/Shared/nav.cshtml")
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.col.CollectionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.libloc.LocationName)
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (LocationCollection f in Model.fclist)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => f.Collection.CollectionName)
+                @*@Html.DisplayFor(model => model.col.CollectionName)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => f.Location.LocationName)
+                @*@Html.DisplayFor(model => model.libloc.LocationName)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => f.CheckedInItems)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.LocationCollectionID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.LocationCollectionID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.LocationCollectionID })*@
+            </td>
+        </tr>
+    }
+
+</table>

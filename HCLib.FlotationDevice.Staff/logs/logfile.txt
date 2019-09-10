@@ -1,0 +1,64 @@
+2019-09-04 08:09:52.9839 HCLib.FlotationDevice.Staff.Models.NLogWriter ShelvingsController.Index :: Exception getting floating collections :: Microsoft.OData.Client.DataServiceTransportException: Unable to connect to the remote server ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:57275
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   --- End of inner exception stack trace ---
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   at Microsoft.OData.Client.DataServiceContext.GetResponseHelper(ODataRequestMessageWrapper request, IAsyncResult asyncResult, Boolean handleWebException)
+   at Microsoft.OData.Client.QueryResult.ExecuteQuery()
+   at Microsoft.OData.Client.DataServiceRequest.Execute[TElement](DataServiceContext context, QueryComponents queryComponents)
+   at Microsoft.OData.Client.DataServiceQuery`1.Execute()
+   at Microsoft.OData.Client.DataServiceQuery`1.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at HCLib.FlotationDevice.Staff.Controllers.ShelvingsController.Index(Nullable`1 id) in C:\Users\srosso\Desktop\DotNetApps\FlotationDevice\HCLib.FlotationDevice.Staff\Controllers\ShelvingsController.cs:line 31
+2019-09-04 08:10:37.2940 HCLib.FlotationDevice.Staff.Models.NLogWriter ShelvingsController.Index :: Exception getting floating collections :: Microsoft.OData.Client.DataServiceTransportException: Unable to connect to the remote server ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:57275
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   --- End of inner exception stack trace ---
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   at Microsoft.OData.Client.DataServiceContext.GetResponseHelper(ODataRequestMessageWrapper request, IAsyncResult asyncResult, Boolean handleWebException)
+   at Microsoft.OData.Client.QueryResult.ExecuteQuery()
+   at Microsoft.OData.Client.DataServiceRequest.Execute[TElement](DataServiceContext context, QueryComponents queryComponents)
+   at Microsoft.OData.Client.DataServiceQuery`1.Execute()
+   at Microsoft.OData.Client.DataServiceQuery`1.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at HCLib.FlotationDevice.Staff.Controllers.ShelvingsController.Index(Nullable`1 id) in C:\Users\srosso\Desktop\DotNetApps\FlotationDevice\HCLib.FlotationDevice.Staff\Controllers\ShelvingsController.cs:line 31
+2019-09-04 08:11:29.3171 HCLib.FlotationDevice.Staff.Models.NLogWriter ShelvingsController.Index :: Exception getting floating collections :: Microsoft.OData.Client.DataServiceTransportException: Unable to connect to the remote server ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:57275
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   --- End of inner exception stack trace ---
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   at Microsoft.OData.Client.DataServiceContext.GetResponseHelper(ODataRequestMessageWrapper request, IAsyncResult asyncResult, Boolean handleWebException)
+   at Microsoft.OData.Client.QueryResult.ExecuteQuery()
+   at Microsoft.OData.Client.DataServiceRequest.Execute[TElement](DataServiceContext context, QueryComponents queryComponents)
+   at Microsoft.OData.Client.DataServiceQuery`1.Execute()
+   at Microsoft.OData.Client.DataServiceQuery`1.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at HCLib.FlotationDevice.Staff.Controllers.ShelvingsController.Index(Nullable`1 id) in C:\Users\srosso\Desktop\DotNetApps\FlotationDevice\HCLib.FlotationDevice.Staff\Controllers\ShelvingsController.cs:line 31
+2019-09-04 08:11:50.0642 HCLib.FlotationDevice.Staff.Models.NLogWriter ShelvingsController.Index :: Exception getting floating collections :: Microsoft.OData.Client.DataServiceTransportException: Unable to connect to the remote server ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:57275
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   --- End of inner exception stack trace ---
+   at Microsoft.OData.Client.HttpWebRequestMessage.GetResponse()
+   at Microsoft.OData.Client.DataServiceContext.GetResponseHelper(ODataRequestMessageWrapper request, IAsyncResult asyncResult, Boolean handleWebException)
+   at Microsoft.OData.Client.QueryResult.ExecuteQuery()
+   at Microsoft.OData.Client.DataServiceRequest.Execute[TElement](DataServiceContext context, QueryComponents queryComponents)
+   at Microsoft.OData.Client.DataServiceQuery`1.Execute()
+   at Microsoft.OData.Client.DataServiceQuery`1.GetEnumerator()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at HCLib.FlotationDevice.Staff.Controllers.ShelvingsController.Index(Nullable`1 id) in C:\Users\srosso\Desktop\DotNetApps\FlotationDevice\HCLib.FlotationDevice.Staff\Controllers\ShelvingsController.cs:line 31
